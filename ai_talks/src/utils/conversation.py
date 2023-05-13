@@ -111,7 +111,7 @@ def show_gpt_conversation() -> None:
 #         end = ai_content.rfind("```") # find the index of the last ```
 #         substring = ai_content[start:end].strip() # get the substring between ``` and strip the whitespace
 #         st.session_state.query_result = substring
-        st.session_state.query_result = st.code
+#         st.session_state.query_result = st.code
 
         calc_cost(completion.get("usage"))
         st.session_state.messages.append({"role": "assistant", "content": ai_content})
