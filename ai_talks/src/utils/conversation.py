@@ -12,7 +12,7 @@ from utils.snowflake_connector import get_queries_data
 
 def show_query_result() -> None:
     #st.text_area(label=st.session_state.locale.chat_placeholder, value=st.session_state.user_text, key="query_result")
-    st.text_area(label=”Query result“, value=”This is query result“, key="query_result")
+    st.text_area(label="Query result", value="This is query result", key="query_result")
 
 def clear_chat() -> None:
     st.session_state.generated = []
