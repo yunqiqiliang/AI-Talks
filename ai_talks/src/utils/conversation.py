@@ -20,7 +20,7 @@ and START_TIME < convert_timezone('UTC', 'UTC', ('{date_to}T00:00:00Z')::timesta
 def show_query_result() -> None:
 #     st.text_area(label=st.session_state.locale.chat_placeholder, value=st.session_state.user_text, key="query_result")
     qd=get_queries_data('2022-05-13','2023-05-13',QUERIES_QUERY)
-    st.text_area(label="Query result", value=qd.sharp, key="query_result")
+    st.text_area(label="Query result", value=qd.shape, key="query_result")
 
 def clear_chat() -> None:
     st.session_state.generated = []
