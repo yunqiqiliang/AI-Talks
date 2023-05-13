@@ -111,7 +111,8 @@ def show_gpt_conversation() -> None:
         st.code("")
         for i, match in enumerate(matches):
             st.code(f"SQL Query {i+1}:\n{match}")
-        st.session_state.query_result = str(st.code)
+#         st.session_state.query_result = str(st.code)
+        st.session_state.query_result = ai_content
 
         
 #         start = ai_content.find("```") + 3 # find the index of the first ```
