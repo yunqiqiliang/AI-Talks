@@ -65,7 +65,7 @@ cur.execute(f"use warehouse {st.secrets.sf_usage_app.warehouse};")
 # cur.execute(f"use role {st.secrets.sf_usage_app.role};")
 
 
-@st.experimental_memo(ttl=TIME_TO_LIVE)
+# @st.experimental_memo(ttl=TIME_TO_LIVE)
 def sql_to_dataframe(sql_query: str) -> pd.DataFrame:
     data = pd.read_sql(
         sql_query,
@@ -74,7 +74,7 @@ def sql_to_dataframe(sql_query: str) -> pd.DataFrame:
     return data
 
 
-@st.experimental_memo(ttl=TIME_TO_LIVE)
+# @st.experimental_memo(ttl=TIME_TO_LIVE)
 def get_queries_data(
     date_from: datetime.date,
     date_to: datetime.date,
