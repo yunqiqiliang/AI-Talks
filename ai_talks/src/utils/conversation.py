@@ -98,6 +98,7 @@ def show_gpt_conversation() -> None:
         completion = create_gpt_completion(st.session_state.model, st.session_state.messages)
         
         ai_content = completion.get("choices")[0].get("message").get("content")
+        logging.basicConfig(level=logging.DEBUG)
         logging.debug("ai_content: {ai_content}")
 
         calc_cost(completion.get("usage"))
