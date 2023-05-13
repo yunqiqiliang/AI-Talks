@@ -96,6 +96,8 @@ def calc_cost(usage: dict) -> None:
 def show_gpt_conversation() -> None:
     try:
         completion = create_gpt_completion(st.session_state.model, st.session_state.messages)
+        logger.info(completion)
+
         ai_content = completion.get("choices")[0].get("message").get("content")
         calc_cost(completion.get("usage"))
         st.session_state.messages.append({"role": "assistant", "content": ai_content})
