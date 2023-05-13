@@ -112,7 +112,7 @@ def show_gpt_conversation() -> None:
             st.code(f"SQL Query {i+1}:\n{match}")
             
         # 设置日志级别为INFO
-        logging.basicConfig(level=logging.INFO)
+        logging.basicConfig(level=logging.DEBUG)
 
         # 记录一条INFO级别的日志信息
         logging.info("This is an info message")
