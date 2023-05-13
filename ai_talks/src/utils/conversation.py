@@ -20,7 +20,7 @@ and START_TIME < convert_timezone('UTC', 'UTC', ('{date_to}T00:00:00Z')::timesta
 def show_query_result() -> None:
     qd=get_queries_data('2022-05-13','2023-05-13',QUERIES_QUERY)
     st.text_area(label="Query result", value=qd.shape, key="query_result")
-    st.bar_chart(data=qd,y="TOTAL_ELAPSED_TIME")
+    st.bar_chart(data=qd,x="QUERY_TYPE",y="TOTAL_ELAPSED_TIME")
     st.table(qd)
     
 
