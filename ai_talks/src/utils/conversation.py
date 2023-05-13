@@ -14,13 +14,12 @@ QUERIES_QUERY = """
 select *
 from snowflake.account_usage.query_history
 where START_TIME >= convert_timezone('UTC', 'UTC', ('{date_from}T00:00:00Z')::timestamp_ltz)
-and START_TIME < convert_timezone('UTC', 'UTC', ('{date_to}T00:00:00Z')::timestamp_ltz) limit 10;
+and START_TIME < convert_timezone('UTC', 'UTC', ('{date_to}T00:00:00Z')::timestamp_ltz) ;
 """
 
 def show_query_result() -> None:
     qd=get_queries_data('2022-05-13','2023-05-13',QUERIES_QUERY)
     st.text_area(label="Query result", value=qd.shape, key="query_result")
-#     st.dataframe(qd)
 
 def clear_chat() -> None:
     st.session_state.generated = []
