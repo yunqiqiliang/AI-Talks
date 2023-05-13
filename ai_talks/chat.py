@@ -9,9 +9,6 @@ from src.utils.helpers import get_files_in_dir, get_random_img
 from src.utils.lang import en, ru
 from streamlit_option_menu import option_menu
 
-# st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON,layout="wide")
-st.set_page_config(layout="wide")
-
 
 # --- PATH SETTINGS ---
 current_dir: Path = Path(__file__).parent if "__file__" in locals() else Path.cwd()
@@ -31,7 +28,7 @@ AI_MODEL_OPTIONS: list[str] = [
     "gpt-4",
     "gpt-4-32k",
 ]
-
+# st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON,layout="wide")
 
 # --- LOAD CSS ---
 with open(css_file) as f:
