@@ -110,12 +110,8 @@ def show_gpt_conversation() -> None:
         matches = re.findall(pattern, ai_content, flags=re.DOTALL)
         for i, match in enumerate(matches):
             st.code(f"SQL Query {i+1}:\n{match}")
-            
-        # 设置日志级别为INFO
-        logging.basicConfig(level=logging.DEBUG)
+        st.session_state.query_result = str(st.code)
 
-        # 记录一条INFO级别的日志信息
-        logging.info("This is an info message")
         
 #         start = ai_content.find("```") + 3 # find the index of the first ```
 #         end = ai_content.rfind("```") # find the index of the last ```
