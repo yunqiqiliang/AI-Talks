@@ -14,7 +14,7 @@ QUERIES_QUERY = """
 select *
 from snowflake.account_usage.query_history
 where START_TIME >= convert_timezone('UTC', 'UTC', ('{date_from}T00:00:00Z')::timestamp_ltz)
-and START_TIME < convert_timezone('UTC', 'UTC', ('{date_to}T00:00:00Z')::timestamp_ltz) ;
+and START_TIME < convert_timezone('UTC', 'UTC', ('{date_to}T00:00:00Z')::timestamp_ltz) limit 100;
 """
 
 def show_query_result() -> None:
