@@ -110,9 +110,7 @@ def show_gpt_conversation() -> None:
         matches = re.findall(pattern, ai_content, flags=re.DOTALL)
         for i, match in enumerate(matches):
             st.code(f"SQL Query {i+1}:\n{match}")
-#         st.session_state.query_result = str(st.code)
-        st.write(st.code)
-        st.session_state.query_result = str(st.code)
+        st.session_state.query_result = str(st.code[1])
 
         
 #         start = ai_content.find("```") + 3 # find the index of the first ```
