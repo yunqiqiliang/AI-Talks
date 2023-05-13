@@ -21,7 +21,7 @@ def show_query_result() -> None:
     qd=get_queries_data('2022-05-13','2023-05-13',QUERIES_QUERY)
     st.text_area(label="Query result", value=qd.shape, key="query_result")
     st.table(qd)
-    st.bar_chart(qd)
+    st.bar_chart(data=qd,y="TOTAL_ELAPSED_TIME")
 
 def clear_chat() -> None:
     st.session_state.generated = []
