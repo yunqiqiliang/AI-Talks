@@ -20,11 +20,12 @@ from snowflake.account_usage.query_history
 where START_TIME >= convert_timezone('UTC', 'UTC', ('{date_from}T00:00:00Z')::timestamp_ltz)
 and START_TIME < convert_timezone('UTC', 'UTC', ('{date_to}T00:00:00Z')::timestamp_ltz) limit 100;
 """
+
 PAYMENT_QUERIES_QUERY = """
 SELECT
-  SUM(payment_value) AS order_total_amount
+  SUM(price) AS order_total_amount
 FROM
-  olist_orders_dataset;
+  olist_order_items_dataset;
 """
 
 def show_query_result() -> None:
