@@ -3,7 +3,7 @@ from random import randrange
 
 import streamlit as st
 from src.styles.menu_styles import FOOTER_STYLES, HEADER_STYLES
-from src.utils.conversation import get_user_input, show_chat_buttons, show_conversation
+from src.utils.conversation import get_user_input, show_chat_buttons, show_conversation, show_query_result
 from src.utils.footer import show_donates, show_info
 from src.utils.helpers import get_files_in_dir, get_random_img
 from src.utils.lang import en, ru
