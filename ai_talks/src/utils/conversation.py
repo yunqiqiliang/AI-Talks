@@ -103,16 +103,16 @@ def show_gpt_conversation() -> None:
         completion = create_gpt_completion(st.session_state.model, st.session_state.messages)
         ai_content = completion.get("choices")[0].get("message").get("content")
         
-        # Regular expression to match SQL queries
+        # 定义一个正则表达式，用来匹配SQL代码
         pattern = r"```\s*sql\s+(.*?)```"
 
-        # Find and display SQL queries
+        # 从字符串中找出SQL代码，并显示在网页上
         matches = re.findall(pattern, ai_content, flags=re.DOTALL)
-        st.code("")
         for i, match in enumerate(matches):
             st.code(f"SQL Query {i+1}:\n{match}")
 #         st.session_state.query_result = str(st.code)
-        st.session_state.query_result = ai_content
+        st.write(st.code)
+        st.session_state.query_result = str(st.code)
 
         
 #         start = ai_content.find("```") + 3 # find the index of the first ```
