@@ -10,7 +10,7 @@ from .tts import show_audio_player
 
 from .snowflake_connector import get_queries_data
 
-from loguru import logger
+import logging
 
 
 QUERIES_QUERY = """
@@ -96,9 +96,10 @@ def calc_cost(usage: dict) -> None:
 def show_gpt_conversation() -> None:
     try:
         completion = create_gpt_completion(st.session_state.model, st.session_state.messages)
-        logger.info(completion)
-
+        
         ai_content = completion.get("choices")[0].get("message").get("content")
+        logging.debug("ai_content: {ai_content}")
+
         calc_cost(completion.get("usage"))
         st.session_state.messages.append({"role": "assistant", "content": ai_content})
         if ai_content:
