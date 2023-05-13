@@ -13,23 +13,12 @@ from .snowflake_connector import get_queries_data
 import logging
 import re
 
-
-QUERIES_QUERY = """
-select *
-from snowflake.account_usage.query_history
-where START_TIME >= convert_timezone('UTC', 'UTC', ('{date_from}T00:00:00Z')::timestamp_ltz)
-and START_TIME < convert_timezone('UTC', 'UTC', ('{date_to}T00:00:00Z')::timestamp_ltz) limit 100;
-"""
-
-PAYMENT_QUERIES_QUERY = """
-select count(*) from OLIST_CUSTOMERS_DATASET;
-"""
-
 def show_query_result() -> None:
-    qd=get_queries_data('2022-05-13','2023-05-13',st.session_state.query_result)
-    st.text_area(label="生成的SQL代码", value=qd.shape, key="query_result")
-#     st.bar_chart(data=qd,x="QUERY_TYPE",y="TOTAL_ELAPSED_TIME")
-    st.table(qd)
+    if substring.find("SELECT") != -1 and substring.find("FROM") != -1:
+        qd=get_queries_data('2022-05-13','2023-05-13',st.session_state.query_result)
+        st.text_area(label="生成的SQL代码", value=qd.shape, key="query_result")
+    #     st.bar_chart(data=qd,x="QUERY_TYPE",y="TOTAL_ELAPSED_TIME")
+        st.table(qd)
     
 
 def clear_chat() -> None:
@@ -106,7 +95,8 @@ def show_gpt_conversation() -> None:
         start = ai_content.find("```") + 3 # find the index of the first ```
         end = ai_content.rfind("```") # find the index of the last ```
         substring = ai_content[start:end].strip() # get the substring between ``` and strip the whitespace
-        st.session_state.query_result = substring
+        if substring.find("SELECT") != -1 and substring.find("FROM") != -1:
+            st.session_state.query_result = substring
 
         calc_cost(completion.get("usage"))
         st.session_state.messages.append({"role": "assistant", "content": ai_content})
