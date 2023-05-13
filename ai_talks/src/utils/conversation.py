@@ -24,9 +24,7 @@ PAYMENT_QUERIES_QUERY = """
 SELECT
   SUM(payment_value) AS order_total_amount
 FROM
-  olist_orders_dataset
-  JOIN olist_order_payments_dataset
-    ON olist_orders_dataset.order_id = olist_order_payments_dataset.order_id;
+  olist_orders_dataset;
 """
 
 def show_query_result() -> None:
