@@ -28,7 +28,7 @@ AI_MODEL_OPTIONS: list[str] = [
     "gpt-4-32k",
 ]
 
-st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
+# st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
 # --- LOAD CSS ---
 with open(css_file) as f:
