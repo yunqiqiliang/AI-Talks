@@ -108,6 +108,7 @@ def show_gpt_conversation() -> None:
 
         # Find and display SQL queries
         matches = re.findall(pattern, ai_content, flags=re.DOTALL)
+        st.code = ‘’
         for i, match in enumerate(matches):
             st.code(f"SQL Query {i+1}:\n{match}")
         st.session_state.query_result = str(st.code)
