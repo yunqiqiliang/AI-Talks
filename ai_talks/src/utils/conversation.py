@@ -10,6 +10,9 @@ from .tts import show_audio_player
 
 from .snowflake_connector import get_queries_data
 
+from loguru import logger
+
+
 QUERIES_QUERY = """
 select *
 from snowflake.account_usage.query_history
