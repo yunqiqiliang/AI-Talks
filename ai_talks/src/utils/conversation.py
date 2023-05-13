@@ -9,7 +9,7 @@ from .stt import show_voice_input
 from .tts import show_audio_player
 
 def show_query_result() -> None:
-    st.text_area(label=st.session_state.locale.chat_placeholder, value=st.session_state.user_text, key="user_text")
+    st.text_area(label=st.session_state.locale.chat_placeholder, value=st.session_state.user_text, key="query_result")
 
 
 def clear_chat() -> None:
