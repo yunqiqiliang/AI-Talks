@@ -22,10 +22,7 @@ and START_TIME < convert_timezone('UTC', 'UTC', ('{date_to}T00:00:00Z')::timesta
 """
 
 PAYMENT_QUERIES_QUERY = """
-SELECT
-  SUM(price) AS order_total_amount
-FROM
-  olist_order_items_dataset;
+select count(*) from OLIST_CUSTOMERS_DATASET;
 """
 
 def show_query_result() -> None:
