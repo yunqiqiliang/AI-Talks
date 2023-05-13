@@ -97,7 +97,7 @@ def show_gpt_conversation() -> None:
     try:
         completion = create_gpt_completion(st.session_state.model, st.session_state.messages)
         ai_content = completion.get("choices")[0].get("message").get("content")
-        st.text_area(label="Query result", value=ai_content, key="query_result")
+        st.session_state.query_result = ai_content
 
         calc_cost(completion.get("usage"))
         st.session_state.messages.append({"role": "assistant", "content": ai_content})
