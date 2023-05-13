@@ -11,6 +11,7 @@ from .tts import show_audio_player
 from .snowflake_connector import get_queries_data
 
 import logging
+import re
 
 
 QUERIES_QUERY = """
