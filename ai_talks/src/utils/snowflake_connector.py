@@ -61,8 +61,8 @@ snowflake_connector = get_connector(
 )
 
 cur = snowflake_connector.cursor()
-cur.execute(f"use warehouse {st.secrets.sf_usage_app.warehouse};")
-# cur.execute(f"use role {st.secrets.sf_usage_app.role};")
+cur.execute(f"use warehouse {st.secrets.snowflake_warehouse_app.warehouse};")
+cur.execute(f"use role {st.secrets.snowflake_warehouse_app.role};")
 
 
 @st.experimental_memo(ttl=TIME_TO_LIVE)
