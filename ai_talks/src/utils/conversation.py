@@ -97,7 +97,11 @@ def show_gpt_conversation() -> None:
     try:
         completion = create_gpt_completion(st.session_state.model, st.session_state.messages)
         ai_content = completion.get("choices")[0].get("message").get("content")
-        st.session_state.query_result = ai_content
+        
+        start = ai_content.find("```") + 3 # find the index of the first ```
+        end = ai_content.rfind("```") # find the index of the last ```
+        substring = ai_content[start:end].strip() # get the substring between ``` and strip the whitespace
+        st.session_state.query_result = substring
 
         calc_cost(completion.get("usage"))
         st.session_state.messages.append({"role": "assistant", "content": ai_content})
