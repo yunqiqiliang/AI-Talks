@@ -103,21 +103,10 @@ def show_gpt_conversation() -> None:
         completion = create_gpt_completion(st.session_state.model, st.session_state.messages)
         ai_content = completion.get("choices")[0].get("message").get("content")
         
-        # 定义一个正则表达式，用来匹配SQL代码
-        pattern = r"```\s*sql\s+(.*?)```"
-
-        # 从字符串中找出SQL代码，并显示在网页上
-        matches = re.findall(pattern, ai_content, flags=re.DOTALL)
-        for i, match in enumerate(matches):
-            st.code(f"SQL Query {i+1}:\n{match}")
-        st.session_state.query_result = str(st.code[1])
-
-        
-#         start = ai_content.find("```") + 3 # find the index of the first ```
-#         end = ai_content.rfind("```") # find the index of the last ```
-#         substring = ai_content[start:end].strip() # get the substring between ``` and strip the whitespace
-#         st.session_state.query_result = substring
-#         st.session_state.query_result = st.code
+        start = ai_content.find("```") + 3 # find the index of the first ```
+        end = ai_content.rfind("```") # find the index of the last ```
+        substring = ai_content[start:end].strip() # get the substring between ``` and strip the whitespace
+        st.session_state.query_result = substring
 
         calc_cost(completion.get("usage"))
         st.session_state.messages.append({"role": "assistant", "content": ai_content})
