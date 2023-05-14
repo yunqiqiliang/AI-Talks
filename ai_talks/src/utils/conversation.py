@@ -20,7 +20,7 @@ def consulting_charts(df)-> None:
     col_names = ",".join(str(num) for num in df.columns.tolist())
     st.dataframe(df)
     data_types = ",".join(str(num) for num in df.dtypes.to_numpy())
-    consulting_charts_prompts = "这是一个dataframe的字段名：" + col_names.str() + "。和字段类型：" + data_types.str() + "。推荐1-6个合适展现这个dataframe的可视化charts"
+    consulting_charts_prompts = "这是一个dataframe的字段名：" + col_names + "。和字段类型：" + data_types + "。推荐1-6个合适展现这个dataframe的可视化charts。"
     try:
         completion = create_gpt_completion(st.session_state.model, consulting_charts_prompts)
         ai_content = completion.get("choices")[0].get("message").get("content")
