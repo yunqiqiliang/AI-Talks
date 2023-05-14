@@ -24,6 +24,7 @@ def show_query_result() -> None:
     
 
 def clear_chat() -> None:
+    st.session_state.locale = en
     st.session_state.generated = []
     st.session_state.past = []
     st.session_state.messages = []
@@ -32,6 +33,7 @@ def clear_chat() -> None:
     st.session_state.costs = []
     st.session_state.total_tokens = []
     st.session_state.query_result = ""
+    
     init_gpt_conversation()
 
 
