@@ -74,7 +74,7 @@ def show_chat(ai_content: str, user_text: str) -> None:
     if st.session_state.generated:
         total_generated=len(st.session_state.generated)
         for i in range(total_generated):
-            display_order=total_generated-i
+            display_order=total_generated-i+1
             message(st.session_state.past[display_order], is_user=True, key=str(display_order) + "_user", seed=st.session_state.seed)
             message("", key=str(display_order), seed=st.session_state.seed)
             st.markdown(st.session_state.generated[i])
