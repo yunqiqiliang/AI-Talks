@@ -68,8 +68,9 @@ if "query_result" not in st.session_state:
 
 
 def main() -> None:
-    c1, c2 , c3, c4= st.columns(4)
-    with c1,c2:
+    c1, c2 , c3= st.columns([2, 2, 6])
+
+    with c1:
         c1.selectbox(label=st.session_state.locale.select_placeholder1, key="model", options=AI_MODEL_OPTIONS)
         st.session_state.input_kind = c2.radio(
             label=st.session_state.locale.input_kind,
@@ -83,15 +84,15 @@ def main() -> None:
         )
         match role_kind:
             case st.session_state.locale.radio_text1:
-                c2.selectbox(label=st.session_state.locale.select_placeholder2, key="role",
+                c1.selectbox(label=st.session_state.locale.select_placeholder2, key="role",
                              options=st.session_state.locale.ai_role_options)
             case st.session_state.locale.radio_text2:
-                c2.text_input(label=st.session_state.locale.select_placeholder3, key="role")
-    with c3:
+                c1.text_input(label=st.session_state.locale.select_placeholder3, key="role")
+    with c2:
         if st.session_state.user_text:
             show_conversation()
             st.session_state.user_text = ""
-    with c4:
+    with c3:
         get_user_input()
         show_chat_buttons()
         show_query_result()
