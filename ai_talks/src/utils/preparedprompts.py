@@ -1,7 +1,6 @@
 prompts_schema = """
-请记住数据库的schema名字是brazilian_ecommerce。9张表的DDL定义如下：-- olist_customers_dataset table DDL
-use role sysadmin;
-use schema brazilian_ecommerce;
+请记住数据库的schema名字是BRAZILIAN_ECOMMERCE。9张表的DDL定义如下：
+-- olist_customers_dataset table DDL
 CREATE TABLE IF NOT EXISTS olist_customers_dataset (
     customer_id VARCHAR(100) COMMENT '客户唯一标识符',
     customer_unique_id VARCHAR(100) COMMENT '客户唯一ID，用于将同一客户的所有记录聚合在一起',
@@ -54,7 +53,7 @@ CREATE TABLE IF NOT EXISTS olist_order_reviews_dataset (
 CREATE TABLE IF NOT EXISTS olist_orders_dataset (
     order_id VARCHAR(100) COMMENT '订单唯一标识符',
     customer_id VARCHAR(100) COMMENT '客户唯一标识符',
-    order_status VARCHAR(50) COMMENT '订单状态（unique value list: delivered, shipped, canceled, invoiced, processing, approved）订单状态（售后，运输，取消，开票，处理，审批完成）',
+    order_status VARCHAR(50) COMMENT '订单状态（字段值包括: delivered, shipped, canceled, invoiced, processing, approved）订单状态（售后，运输，取消，开票，处理，审批完成）',
     order_purchase_timestamp TIMESTAMP COMMENT '订单创建时间',
     order_approved_at TIMESTAMP COMMENT '订单批准时间',
     order_delivered_carrier_date TIMESTAMP COMMENT '运输商交付日期',
@@ -88,7 +87,8 @@ CREATE TABLE IF NOT EXISTS product_category_name_translation (
 """
 
 prompts_ord = """
-请记住这9张表的实体关系：1、olist_customers_dataset：客户信息数据集
+请记住这9张表的实体关系：
+1、olist_customers_dataset：客户信息数据集
     实体关系：一个客户可以拥有多个订单，一个订单只能属于一个客户。
     主键：customer_unique_id
     外键：order_id （在“olist_orders_dataset”表中）
