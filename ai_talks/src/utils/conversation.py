@@ -62,6 +62,8 @@ def show_query_result() -> None:
                 st.line_chart(qd[column])
                 # 生成柱状图
                 st.bar_chart(qd[column])
+                # 生成饼图
+                st.pie_chart(qd[column])
 
 def clear_chat() -> None:
     st.session_state.generated = []
