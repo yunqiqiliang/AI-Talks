@@ -68,6 +68,7 @@ def clear_chat() -> None:
     st.session_state.costs = []
     st.session_state.total_tokens = []
     st.session_state.query_result = ""
+    st.session_state.charts_type = "" 
     
 
 
