@@ -99,6 +99,7 @@ def show_gpt_conversation() -> None:
         substring = substring.upper()
         if substring.find("SELECT") != -1 and substring.find("FROM") != -1 and substring.find("BRAZILIAN_ECOMMERCE") != -1 :
             st.session_state.query_result = substring
+            substring = substring.replace("SQL", "")
 
         calc_cost(completion.get("usage"))
         st.session_state.messages.append({"role": "assistant", "content": ai_content})
