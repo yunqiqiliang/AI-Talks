@@ -14,7 +14,7 @@ import logging
 import re
 
 def show_query_result() -> None:
-    if st.session_state.query_result.find("SELECT") != -1 and st.session_state.query_result.find("FROM") != -1:
+    if st.session_state.query_result.find("SELECT") != -1 and st.session_state.query_result.find("FROM") != -1  and st.session_state.query_result.find("BRAZILIAN_ECOMMERCE") != -1 :
         qd=get_queries_data('2022-05-13','2023-05-13',st.session_state.query_result)
         st.text_area(label="执行的SQL代码", value=st.session_state.query_result, key="query_result")
     #     st.bar_chart(data=qd,x="QUERY_TYPE",y="TOTAL_ELAPSED_TIME")
@@ -96,7 +96,7 @@ def show_gpt_conversation() -> None:
         start = ai_content.find("```") + 3 # find the index of the first ```
         end = ai_content.rfind("```") # find the index of the last ```
         substring = ai_content[start:end].strip() # get the substring between ``` and strip the whitespace
-        if substring.find("SELECT") != -1 and substring.find("FROM") != -1:
+        if substring.find("SELECT") != -1 and substring.find("FROM") != -1 and and  st.session_state.query_result.find("BRAZILIAN_ECOMMERCE") != -1 :
             st.session_state.query_result = substring
 
         calc_cost(completion.get("usage"))
