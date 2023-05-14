@@ -70,6 +70,9 @@ if "total_tokens" not in st.session_state:
     st.session_state.total_tokens = []
 if "query_result" not in st.session_state:
     st.session_state.query_result = ""
+if "charts_type" not in st.session_state:
+    st.session_state.charts_type = ""   
+    
 
 
 def main() -> None:
