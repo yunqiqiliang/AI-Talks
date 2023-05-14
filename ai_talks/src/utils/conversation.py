@@ -121,16 +121,19 @@ def show_gpt_conversation() -> None:
         completion = create_gpt_completion(st.session_state.model, st.session_state.messages)
         ai_content = completion.get("choices")[0].get("message").get("content")
         
-        st.session_state.query_result = ai_content
+        st.code(ai_content, language="sql")
+        md = st.markdown(f"```sql\n{code}\n```")
+        substring = md.body
+        st.write(substring)
         
 #         start = ai_content.find("```") + 3 # find the index of the first ```
 #         end = ai_content.rfind("```") # find the index of the last ```
 #         substring = ai_content[start:end].strip() # get the substring between ``` and strip the whitespace
 
-#         substring = substring.upper()
-#         if substring.find("SELECT") != -1 and substring.find("FROM") != -1 and substring.find("BRAZILIAN_ECOMMERCE") != -1 :
-#             st.session_state.query_result = substring
-#         substring = substring.replace("SQL", "")
+        substring = substring.upper()
+        if substring.find("SELECT") != -1 and substring.find("FROM") != -1 and substring.find("BRAZILIAN_ECOMMERCE") != -1 :
+            st.session_state.query_result = substring
+        substring = substring.replace("SQL", "")
 
         calc_cost(completion.get("usage"))
         st.session_state.messages.append({"role": "assistant", "content": ai_content})
