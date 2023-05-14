@@ -1,6 +1,6 @@
 AI_ROLE_OPTIONS_EN: list[str] = [
-    "helpful assistant",
     "code assistant",
+    "helpful assistant",
     "code reviewer",
     "text improver",
     "cinema expert",
