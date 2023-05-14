@@ -53,6 +53,9 @@ if "past" not in st.session_state:
     st.session_state.past = []
 if "messages" not in st.session_state:
     st.session_state.messages = []
+    st.session_state.messages.append({"role": "assistant", "content": prompts_schema})
+    st.session_state.messages.append({"role": "assistant", "content": prompts_ord})
+    st.session_state.messages.append({"role": "assistant", "content": prompts_sql_standard})
 if "user_text" not in st.session_state:
     st.session_state.user_text = ""
 if "input_kind" not in st.session_state:
