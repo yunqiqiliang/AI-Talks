@@ -77,7 +77,7 @@ def show_chat(ai_content: str, user_text: str) -> None:
             display_order=total_generated-i+1
             message(st.session_state.past[display_order], is_user=True, key=str(display_order) + "_user", seed=st.session_state.seed)
             message("", key=str(display_order), seed=st.session_state.seed)
-            st.markdown(st.session_state.generated[i])
+            st.markdown(st.session_state.generated[display_order])
             st.caption(f"""
                 {st.session_state.locale.tokens_count}{st.session_state.total_tokens[display_order]} |
                 {st.session_state.locale.message_cost}{st.session_state.costs[display_order]:.5f}$
