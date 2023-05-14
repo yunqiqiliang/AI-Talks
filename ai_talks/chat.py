@@ -126,8 +126,10 @@ def run_agi():
         case st.session_state.locale.footer_option0:
             main()
         case st.session_state.locale.footer_option1:
-            st.image(f"{img_dir}/{get_random_img(get_files_in_dir(img_dir))}")
-            show_info(tg_svg)
+            c1, c2, c3= st.columns(3)
+            with c2:
+                st.image(f"{img_dir}/{get_random_img(get_files_in_dir(img_dir))}")
+                show_info(tg_svg)
 #         case st.session_state.locale.footer_option2:
 #             show_donates()
         case _:
