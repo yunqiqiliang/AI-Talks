@@ -21,7 +21,29 @@ def consulting_charts(df)-> None:
     st.dataframe(df)
     data_types = ",".join(str(num) for num in df.dtypes.to_numpy())
     consulting_charts_prompts = "这是一个dataframe的字段名：" + col_names.str() + "。和字段类型：" + data_types.str() + "。推荐1-6个合适展现这个dataframe的可视化charts"
-    
+    try:
+        completion = create_gpt_completion(st.session_state.model, st.session_state.messages)
+        ai_content = completion.get("choices")[0].get("message").get("content")
+        st.session_state.charts_type = ai_content
+        st.text_area(label="推荐的Charts是：", value=st.session_state.charts_type, key="charts_type")
+        
+        calc_cost(completion.get("usage"))
+        st.session_state.messages.append({"role": "system", "content": ai_content})
+        if ai_content:
+            show_audio_player(ai_content)
+            st.divider()
+            show_chat(ai_content, st.session_state.user_text)
+                  
+    except InvalidRequestError as err:
+        if err.code == "context_length_exceeded":
+            st.session_state.messages.pop(1)
+            if len(st.session_state.messages) == 1:
+                st.session_state.user_text = ""
+            show_conversation()
+        else:
+            st.error(err)
+    except (OpenAIError, UnboundLocalError) as err:
+        st.error(err)
 
 def show_query_result() -> None:
     if st.session_state.query_result.find("SELECT") != -1 and st.session_state.query_result.find("FROM") != -1  and st.session_state.query_result.find("BRAZILIAN_ECOMMERCE") != -1 :
