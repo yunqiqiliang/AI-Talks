@@ -46,7 +46,7 @@ with open(css_file) as f:
 
 # Storing The Context
 if "locale" not in st.session_state:
-    st.session_state.locale = en
+    st.session_state.locale = "en"
 if "generated" not in st.session_state:
     st.session_state.generated = []
 if "past" not in st.session_state:
