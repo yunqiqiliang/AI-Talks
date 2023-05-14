@@ -55,15 +55,18 @@ def show_query_result() -> None:
             st.table(qd.head(10))
 #             st.line_chart(qd)
 #             st.bar_chart(data=qd)
-#             st.dataframe(df)
+#             st.dataframe(qd)
 #             data_types = ",".join(str(num) for num in df.dtypes.to_numpy())
+            # 生成散点图
+            st.scatter_chart(data)
             for column in qd.columns.tolist():
                 # 生成线图
                 st.line_chart(qd[column])
                 # 生成柱状图
                 st.bar_chart(qd[column])
-                # 生成饼图
-                st.pie_chart(qd[column])
+                # 生成区域图
+                st.area_chart(qd[column])
+                
 
 def clear_chat() -> None:
     st.session_state.generated = []
