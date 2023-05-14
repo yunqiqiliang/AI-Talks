@@ -72,13 +72,15 @@ def show_chat(ai_content: str, user_text: str) -> None:
         st.session_state.past.append(user_text)
         st.session_state.generated.append(ai_content)
     if st.session_state.generated:
-        for i in range(len(st.session_state.generated)):
-            message(st.session_state.past[i], is_user=True, key=str(i) + "_user", seed=st.session_state.seed)
-            message("", key=str(i), seed=st.session_state.seed)
+        total_generated=range(len(st.session_state.generated))
+        for i in total_generated:
+            display_order=total_generated-i
+            message(st.session_state.past[display_order], is_user=True, key=str(display_order) + "_user", seed=st.session_state.seed)
+            message("", key=str(display_order), seed=st.session_state.seed)
             st.markdown(st.session_state.generated[i])
             st.caption(f"""
-                {st.session_state.locale.tokens_count}{st.session_state.total_tokens[i]} |
-                {st.session_state.locale.message_cost}{st.session_state.costs[i]:.5f}$
+                {st.session_state.locale.tokens_count}{st.session_state.total_tokens[display_order]} |
+                {st.session_state.locale.message_cost}{st.session_state.costs[display_order]:.5f}$
             """, help=f"{st.session_state.locale.total_cost}{sum(st.session_state.costs):.5f}$")
 
 
