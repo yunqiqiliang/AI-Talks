@@ -21,7 +21,8 @@ def show_query_result() -> None:
         st.text_area(label="执行的SQL代码", value=st.session_state.query_result, key="query_result")
     #     st.bar_chart(data=qd,x="QUERY_TYPE",y="TOTAL_ELAPSED_TIME")
         st.table(qd)
-    
+        st.line_chart(qd)
+        st.bar_chart(data=qd)
 
 def clear_chat() -> None:
     st.session_state.generated = []
