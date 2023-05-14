@@ -134,9 +134,10 @@ def show_gpt_conversation() -> None:
         calc_cost(completion.get("usage"))
         st.session_state.messages.append({"role": "assistant", "content": ai_content})
         if ai_content:
-            show_chat(ai_content, st.session_state.user_text)
-            st.divider()
             show_audio_player(ai_content)
+            st.divider()
+            show_chat(ai_content, st.session_state.user_text)
+                  
     except InvalidRequestError as err:
         if err.code == "context_length_exceeded":
             st.session_state.messages.pop(1)
