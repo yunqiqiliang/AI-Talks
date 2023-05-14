@@ -45,56 +45,44 @@ class Locale:
 
 
 # --- LOCALE SETTINGS ---
-en = Locale(
-    ai_role_options=AI_ROLE_OPTIONS_EN,
-    ai_role_prefix="You are a female",
-    ai_role_postfix="Answer as concisely as possible.",
-    title="AI Talks To Insights",
-    language="English",
-    lang_code="en",
-    donates="Donates",
-    donates1="Russia",
-    donates2="World",
-    chat_placeholder="Start Your Conversation With AI:",
-    chat_run_btn="Ask",
-    chat_clear_btn="Clear",
-    chat_save_btn="Save",
-    speak_btn="Push to Speak",
-    input_kind="Input Kind",
-    input_kind_1="Text",
-    input_kind_2="Voice [test mode]",
-    select_placeholder1="Select Model",
-    select_placeholder2="Select Role",
-    select_placeholder3="Create Role",
-    radio_placeholder="Role Interaction",
-    radio_text1="Select",
-    radio_text2="Create",
-    stt_placeholder="To Hear The Voice Of AI Press Play",
-    footer_title="Support & Feedback",
-    footer_option0="Chat",
-    footer_option1="Info",
-    footer_option2="Donate",
-    footer_chat="AI Talks Chat",
-    footer_channel="AI Talks Channel",
-    responsibility_denial="""
-        `AI Talks` uses the `Open AI` API to interact with `ChatGPT`, an AI that generates information.
-        Please note that neural network responses may not be reliable, inaccurate or irrelevant.
-        We are not responsible for any consequences associated with the use or reliance on the information provided.
-        Use the received data at your discretion.
-    """,
-    donates_info="""
-        `AI Talks` collects donations solely for the purpose of paying for the `Open AI` API.
-        This allows you to provide access to communication with AI for all users.
-        Support us for joint development and interaction with the intelligence of the future!
-    """,
-    tokens_count="Tokens count: ",
-    message_cost="Message cost: ",
-    total_cost="Total cost of conversation: ",
-    empty_api_handler=f"""
-        API key not found. Create `.streamlit/secrets.toml` with your API key.
-        See [README.md]({README_URL}) for instructions or use the original [AI Talks]({AI_TALKS_URL}).
-    """,
-)
+en = Locale( 
+    ai_role_options=AI_ROLE_OPTIONS_EN, 
+    ai_role_prefix=“你是一位女性”, 
+    ai_role_postfix=“尽可能简洁地回答。”, 
+    title=“AI Talks To Insights”, 
+    language=“英语”, 
+    lang_code=“en”, 
+    donates=“捐赠”, 
+    donates1=“俄罗斯”, 
+    donates2=“世界”, 
+    chat_placeholder=“开始与AI的对话：”, 
+    chat_run_btn=“询问”,
+    chat_clear_btn=“清除”, 
+    chat_save_btn=“保存”, 
+    speak_btn=“按住说话”, 
+    input_kind=“输入方式”, 
+    input_kind_1=“文本”, 
+    input_kind_2=“语音 [测试模式]”, 
+    select_placeholder1=“选择模型”, 
+    select_placeholder2=“选择角色”, 
+    select_placeholder3=“创建角色”, 
+    radio_placeholder=“角色互动”, 
+    radio_text1=“选择”, 
+    radio_text2=“创建”, 
+    stt_placeholder=“要听AI的声音，请按播放键”, 
+    footer_title=“支持与反馈”, 
+    footer_option0=“聊天”, 
+    footer_option1=“信息”, 
+    footer_option2=“捐赠”, 
+    footer_chat=“AI Talks 聊天”, 
+    footer_channel=“AI Talks 频道”, 
+    responsibility_denial=“”" 
+        AI Talks使用Open AI API与ChatGPT交互，ChatGPT是一个能够生成信息的人工智能。 请注意，神经网络的回答可能不可靠、不准确或不相关。
+        我们对使用或依赖所提供信息所造成的任何后果不承担任何责任。  支持我们共同开发和与未来的智能互动吧！ “”", 
+    tokens_count="令牌数： ", 
+    message_cost=“消息费用： “, 
+    total_cost=“对话总费用： “, 
+    empty_api_handler=f””” 未找到API密钥。请在.streamlit/secrets.toml中创建你的API密钥。 请参考README.md中的说明，或者使用原版AI Talks。 “””, )
 
 
 ru = Locale(
