@@ -15,7 +15,7 @@ import logging
 import re
 import pandas as pd
 
-def consulting_charts(df:pandas)-> None:
+def consulting_charts(df)-> None:
     st.dataframe(df)
     col_names = df.columns.tolist()
     st.dataframe(df)
