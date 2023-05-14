@@ -17,9 +17,11 @@ import pandas as pd
 
 def consulting_charts(df)-> None:
     st.dataframe(df)
-    col_names = df.columns.tolist()
+    col_names = ",".join(str(num) for num in df.columns.tolist())
     st.dataframe(df)
-    data_types = df.dtypes.to_numpy()
+    data_types = ",".join(str(num) for num in df.dtypes.to_numpy())
+    consulting_charts_prompts = "这是一个dataframe的字段名：" + col_names.str() + "。和字段类型：" + data_types.str() + "。推荐1-6个合适展现这个dataframe的可视化charts"
+    
 
 def show_query_result() -> None:
     if st.session_state.query_result.find("SELECT") != -1 and st.session_state.query_result.find("FROM") != -1  and st.session_state.query_result.find("BRAZILIAN_ECOMMERCE") != -1 :
