@@ -120,15 +120,11 @@ def show_gpt_conversation() -> None:
     try:
         completion = create_gpt_completion(st.session_state.model, st.session_state.messages)
         ai_content = completion.get("choices")[0].get("message").get("content")
-        
 
-        md = st.markdown(f"```sql\n{ai_content}\n```")
-        sql_body = str(md.body)
-        st.write(sql_body)
         
-#         start = ai_content.find("```") + 3 # find the index of the first ```
-#         end = ai_content.rfind("```") # find the index of the last ```
-#         substring = ai_content[start:end].strip() # get the substring between ``` and strip the whitespace
+        start = ai_content.find("```") + 3 # find the index of the first ```
+        end = ai_content.rfind("```") # find the index of the last ```
+        substring = ai_content[start:end].strip() # get the substring between ``` and strip the whitespace
 
         substring = sql_body.upper()
         if substring.find("SELECT") != -1 and substring.find("FROM") != -1 and substring.find("BRAZILIAN_ECOMMERCE") != -1 :
