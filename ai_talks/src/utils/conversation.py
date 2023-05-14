@@ -28,13 +28,15 @@ def clear_chat() -> None:
     st.session_state.generated = []
     st.session_state.past = []
     st.session_state.messages = []
+    st.session_state.messages.append({"role": "assistant", "content": prompts_schema})
+    st.session_state.messages.append({"role": "assistant", "content": prompts_ord})
+    st.session_state.messages.append({"role": "assistant", "content": prompts_sql_standard})
     st.session_state.user_text = ""
     st.session_state.seed = randrange(10**8)  # noqa: S311
     st.session_state.costs = []
     st.session_state.total_tokens = []
     st.session_state.query_result = ""
     
-    init_gpt_conversation()
 
 
 def show_text_input() -> None:
