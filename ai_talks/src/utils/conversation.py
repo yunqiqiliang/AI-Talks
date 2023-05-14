@@ -94,9 +94,12 @@ def calc_cost(usage: dict) -> None:
 
 def init_gpt_conversation() -> None:
     try:
+        st.session_state.messages = []
         st.session_state.messages.append({"role": "assistant", "content": prompts_schema})
         st.session_state.messages.append({"role": "assistant", "content": prompts_ord})
         st.session_state.messages.append({"role": "assistant", "content": prompts_sql_standard})
+        st.session_state.model = "gpt-3.5-turbo"
+        st.session_state.locale = "en"
         completion = create_gpt_completion(st.session_state.model, st.session_state.messages)
         ai_content = completion.get("choices")[0].get("message").get("content")
 
