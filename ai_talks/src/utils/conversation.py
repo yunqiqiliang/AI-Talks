@@ -94,6 +94,35 @@ def calc_cost(usage: dict) -> None:
         cost = (prompt_tokens * 0.03 + completion_tokens * 0.06) / 1000
     st.session_state.costs.append(cost)
 
+def init_gpt_conversation() -> None:
+    try:
+        completion = create_gpt_completion(st.session_state.model, prompts_schema+prompts_ord+prompts_sql_standard)
+        ai_content = completion.get("choices")[0].get("message").get("content")
+        
+        start = ai_content.find("```") + 3 # find the index of the first ```
+        end = ai_content.rfind("```") # find the index of the last ```
+        substring = ai_content[start:end].strip() # get the substring between ``` and strip the whitespace
+        substring = substring.upper()
+        if substring.find("SELECT") != -1 and substring.find("FROM") != -1 and substring.find("BRAZILIAN_ECOMMERCE") != -1 :
+            st.session_state.query_result = substring
+        substring = substring.replace("SQL", "")
+
+        calc_cost(completion.get("usage"))
+        st.session_state.messages.append({"role": "assistant", "content": ai_content})
+        if ai_content:
+            show_chat(ai_content, st.session_state.user_text)
+            st.divider()
+            show_audio_player(ai_content)
+    except InvalidRequestError as err:
+        if err.code == "context_length_exceeded":
+            st.session_state.messages.pop(1)
+            if len(st.session_state.messages) == 1:
+                st.session_state.user_text = ""
+            show_conversation()
+        else:
+            st.error(err)
+    except (OpenAIError, UnboundLocalError) as err:
+        st.error(err)
 
 def show_gpt_conversation() -> None:
     try:
