@@ -123,14 +123,14 @@ def show_gpt_conversation() -> None:
         
 
         md = st.markdown(f"```sql\n{ai_content}\n```")
-        substring = md.body
-        st.write(substring)
+        sql_body = str(md.body)
+        st.write(sql_body)
         
 #         start = ai_content.find("```") + 3 # find the index of the first ```
 #         end = ai_content.rfind("```") # find the index of the last ```
 #         substring = ai_content[start:end].strip() # get the substring between ``` and strip the whitespace
 
-        substring = substring.upper()
+        substring = sql_body.upper()
         if substring.find("SELECT") != -1 and substring.find("FROM") != -1 and substring.find("BRAZILIAN_ECOMMERCE") != -1 :
             st.session_state.query_result = substring
         substring = substring.replace("SQL", "")
