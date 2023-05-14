@@ -4,6 +4,8 @@ from random import randrange
 import streamlit as st
 from src.styles.menu_styles import FOOTER_STYLES, HEADER_STYLES
 from src.utils.conversation import get_user_input, show_chat_buttons, show_conversation, show_query_result,init_gpt_conversation
+from src.utils.preparedprompts import prompts_schema,prompts_ord,prompts_sql_standard
+
 from src.utils.footer import show_donates, show_info
 from src.utils.helpers import get_files_in_dir, get_random_img
 from src.utils.lang import en, ru
