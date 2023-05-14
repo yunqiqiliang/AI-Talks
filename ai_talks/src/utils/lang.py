@@ -82,6 +82,7 @@ en = Locale(
     tokens_count="令牌数：", 
     message_cost="消息费用：", 
     total_cost="对话总费用： ", 
+    donates_info="donates info",
     empty_api_handler=f""" 未找到API密钥。请在.streamlit/secrets.toml中创建你的API密钥。
     """, )
 
