@@ -53,8 +53,15 @@ def show_query_result() -> None:
 #             consulting_charts(qd.head(10))
 #             st.bar_chart(data=qd,x="QUERY_TYPE",y="TOTAL_ELAPSED_TIME")
             st.table(qd.head(10))
-            st.line_chart(qd)
-            st.bar_chart(data=qd)
+#             st.line_chart(qd)
+#             st.bar_chart(data=qd)
+#             st.dataframe(df)
+#             data_types = ",".join(str(num) for num in df.dtypes.to_numpy())
+            for column in st.columns.tolist()):
+                # 生成线图
+                st.line_chart(data[column])
+                # 生成柱状图
+                st.bar_chart(data[column])
 
 def clear_chat() -> None:
     st.session_state.generated = []
