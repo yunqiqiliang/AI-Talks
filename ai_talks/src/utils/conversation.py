@@ -123,9 +123,10 @@ def show_gpt_conversation() -> None:
         
         st.session_state.query_result = ai_content
         
-        start = ai_content.find("```") + 3 # find the index of the first ```
-        end = ai_content.rfind("```") # find the index of the last ```
-        substring = ai_content[start:end].strip() # get the substring between ``` and strip the whitespace
+#         start = ai_content.find("```") + 3 # find the index of the first ```
+#         end = ai_content.rfind("```") # find the index of the last ```
+#         substring = ai_content[start:end].strip() # get the substring between ``` and strip the whitespace
+        
         substring = substring.upper()
         if substring.find("SELECT") != -1 and substring.find("FROM") != -1 and substring.find("BRAZILIAN_ECOMMERCE") != -1 :
             st.session_state.query_result = substring
