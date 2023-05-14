@@ -58,7 +58,8 @@ def show_query_result() -> None:
 #             st.dataframe(qd)
 #             data_types = ",".join(str(num) for num in df.dtypes.to_numpy())
             # 生成散点图
-            st.scatter_chart(data)
+            st.scatter_chart(qd)
+            st.pie_chart(qd,use_container_width=False)
             for column in qd.columns.tolist():
                 # 生成线图
                 st.line_chart(qd[column])
