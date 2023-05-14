@@ -53,6 +53,7 @@ def show_chat_buttons() -> None:
     with b0, b1, b2:
         b0.button(label=st.session_state.locale.chat_run_btn)
         b1.button(label=st.session_state.locale.chat_clear_btn, on_click=clear_chat)
+            init_gpt_conversation()
         b2.download_button(
             label=st.session_state.locale.chat_save_btn,
             data="\n".join([str(d) for d in st.session_state.messages[1:]]),
