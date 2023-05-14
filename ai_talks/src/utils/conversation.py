@@ -25,7 +25,7 @@ def consulting_charts(df)-> None:
         completion = create_gpt_completion(st.session_state.model, consulting_charts_prompts)
         ai_content = completion.get("content")
         st.session_state.charts_type = ai_content
-        st.text_area(label="根据字段名和字段类型推荐的Charts是：", value=st.session_state.charts_type, key="charts_type")
+        st.text_area(label="根据字段名和字段类型推荐的Charts是：", value=completion, key="charts_type")
         
         calc_cost(completion.get("usage"))
         st.session_state.messages.append({"role": "system", "content": ai_content})
