@@ -21,7 +21,7 @@ img_dir: Path = assets_dir / "img"
 tg_svg: Path = icons_dir / "tg.svg"
 
 # --- GENERAL SETTINGS ---
-PAGE_TITLE: str = "AI Talks To Insights"
+PAGE_TITLE: str = "AI Talks：Click Zetata Data To Insights"
 PAGE_ICON: str = "🤖"
 LANG_EN: str = "En"
 LANG_RU: str = "Ru"
