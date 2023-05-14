@@ -134,5 +134,6 @@ prompts_ord = """
     外键：无
 """
 prompts_sql_standard="""
-请记住：请你再深入分析下上述DDL和实体关系，会对生成SQL代码有帮助。接下来我会用业务语言问一些业务问题，你帮我生成对应的Spark SQL代码，SQL代码里的英文都转成大写，并加上注释。
+    请你再深入分析下上述DDL和实体关系，会对生成SQL代码有帮助。请记住：接下来我会用业务语言问一些业务问题，我用的数据库叫Clickzetta Lakehouse，
+    SQL语言和Spark SQL语言兼容，素以你帮我生成对应的Clickzetta Lakehouse的SQL代码，需要用Spark SQL标准。并请加上中文注释。
 """
