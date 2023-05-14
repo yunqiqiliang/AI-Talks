@@ -24,7 +24,6 @@ def show_query_result() -> None:
     
 
 def clear_chat() -> None:
-    st.session_state.locale = "en"
     st.session_state.generated = []
     st.session_state.past = []
     st.session_state.messages = []
