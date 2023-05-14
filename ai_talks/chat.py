@@ -34,15 +34,15 @@ st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON,layout="wide")
 with open(css_file) as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-selected_lang = option_menu(
-    menu_title=None,
-    options=[LANG_EN, LANG_RU, ],
-    icons=["globe2", "translate"],
-    menu_icon="cast",
-    default_index=0,
-    orientation="horizontal",
-    styles=HEADER_STYLES
-)
+# selected_lang = option_menu(
+#     menu_title=None,
+#     options=[LANG_EN, LANG_RU, ],
+#     icons=["globe2", "translate"],
+#     menu_icon="cast",
+#     default_index=0,
+#     orientation="horizontal",
+#     styles=HEADER_STYLES
+# )
 
 # Storing The Context
 if "locale" not in st.session_state:
