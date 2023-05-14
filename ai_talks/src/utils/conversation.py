@@ -47,7 +47,7 @@ def consulting_charts(df)-> None:
 def show_query_result() -> None:
     if st.session_state.query_result.find("SELECT") != -1 and st.session_state.query_result.find("FROM") != -1  and st.session_state.query_result.find("BRAZILIAN_ECOMMERCE") != -1 :
         st.session_state.query_result=st.session_state.query_result.replace("SQL","")
-        qd=get_queries_data('2022-05-13','2023-05-13',st.session_state.query_result)
+        qd, error_code, error_reason=get_queries_data('2022-05-13','2023-05-13',st.session_state.query_result)
         st.text_area(label="执行的SQL代码", value=st.session_state.query_result, key="query_result")
         if qd.shape[0]>0 :
 #             consulting_charts(qd.head(10))
