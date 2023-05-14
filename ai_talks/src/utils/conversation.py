@@ -57,11 +57,11 @@ def show_query_result() -> None:
 #             st.bar_chart(data=qd)
 #             st.dataframe(df)
 #             data_types = ",".join(str(num) for num in df.dtypes.to_numpy())
-            for column in st.columns.tolist():
+            for column in qd.columns.tolist():
                 # 生成线图
-                st.line_chart(st[column])
+                st.line_chart(qd[column])
                 # 生成柱状图
-                st.bar_chart(st[column])
+                st.bar_chart(qd[column])
 
 def clear_chat() -> None:
     st.session_state.generated = []
