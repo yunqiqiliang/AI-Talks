@@ -21,7 +21,7 @@ img_dir: Path = assets_dir / "img"
 tg_svg: Path = icons_dir / "tg.svg"
 
 # --- GENERAL SETTINGS ---
-PAGE_TITLE: str = "Click Zetata Data To Insights"
+PAGE_TITLE: str = "欢迎来到Click Zetata Data To Insight"
 PAGE_ICON: str = "🤖"
 LANG_EN: str = "En"
 LANG_RU: str = "Ru"
@@ -30,7 +30,7 @@ AI_MODEL_OPTIONS: list[str] = [
     "gpt-4",
     "gpt-4-32k",
 ]
-st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON,layout="wide")
+st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON,layout="dashboard")
 
 # --- LOAD CSS ---
 with open(css_file) as f:
