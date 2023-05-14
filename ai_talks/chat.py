@@ -93,14 +93,14 @@ def main() -> None:
                              options=st.session_state.locale.ai_role_options)
             case st.session_state.locale.radio_text2:
                 c1.text_input(label=st.session_state.locale.select_placeholder3, key="role")
-    with c1:
+    with c2:
         if st.session_state.user_text:
             show_conversation()
             st.session_state.user_text = ""
-    with c3:
+    with c1:
         get_user_input()
         show_chat_buttons()
-    with c2:
+    with c3:
         show_query_result()
 
 
