@@ -100,13 +100,14 @@ def main() -> None:
 
 
 def run_agi():
-    match selected_lang:
-        case "En":
-            st.session_state.locale = en
-        case "Ru":
-            st.session_state.locale = ru
-        case _:
-            st.session_state.locale = en
+#     match selected_lang:
+#         case "En":
+#             st.session_state.locale = en
+#         case "Ru":
+#             st.session_state.locale = ru
+#         case _:
+#             st.session_state.locale = en
+    st.session_state.locale = en
     st.markdown(f"<h1 style='text-align: center;'>{st.session_state.locale.title}</h1>", unsafe_allow_html=True)
     selected_footer = option_menu(
         menu_title=None,
