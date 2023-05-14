@@ -114,11 +114,11 @@ def run_agi():
         options=[
             st.session_state.locale.footer_option1,
             st.session_state.locale.footer_option0,
-            st.session_state.locale.footer_option2,
+#             st.session_state.locale.footer_option2,
         ],
         icons=["info-circle", "chat-square-text", "piggy-bank"],  # https://icons.getbootstrap.com/
         menu_icon="cast",
-        default_index=0,
+        default_index=1,
         orientation="horizontal",
         styles=FOOTER_STYLES
     )
@@ -128,8 +128,8 @@ def run_agi():
         case st.session_state.locale.footer_option1:
             st.image(f"{img_dir}/{get_random_img(get_files_in_dir(img_dir))}")
             show_info(tg_svg)
-        case st.session_state.locale.footer_option2:
-            show_donates()
+#         case st.session_state.locale.footer_option2:
+#             show_donates()
         case _:
             show_info(tg_svg)
 
