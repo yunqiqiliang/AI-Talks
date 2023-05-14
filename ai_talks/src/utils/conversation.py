@@ -121,8 +121,8 @@ def show_gpt_conversation() -> None:
         completion = create_gpt_completion(st.session_state.model, st.session_state.messages)
         ai_content = completion.get("choices")[0].get("message").get("content")
         
-        st.code(ai_content, language="sql")
-        md = st.markdown(f"```sql\n{code}\n```")
+
+        md = st.markdown(f"```sql\n{ai_content}\n```")
         substring = md.body
         st.write(substring)
         
