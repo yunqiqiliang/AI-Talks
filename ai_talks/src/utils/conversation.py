@@ -13,6 +13,13 @@ from .preparedprompts import prompts_schema,prompts_ord,prompts_sql_standard
 
 import logging
 import re
+import pandas as pd
+
+def consulting_charts(df:pandas)-> None:
+    st.dataframe(df)
+    col_names = df.columns.tolist()
+    st.dataframe(df)
+    data_types = df.dtypes.to_numpy()
 
 def show_query_result() -> None:
     if st.session_state.query_result.find("SELECT") != -1 and st.session_state.query_result.find("FROM") != -1  and st.session_state.query_result.find("BRAZILIAN_ECOMMERCE") != -1 :
