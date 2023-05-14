@@ -29,6 +29,7 @@ def clear_chat() -> None:
     st.session_state.seed = randrange(10**8)  # noqa: S311
     st.session_state.costs = []
     st.session_state.total_tokens = []
+    st.session_state.query_result = ""
 
 
 def show_text_input() -> None:
