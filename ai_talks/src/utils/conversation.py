@@ -103,7 +103,7 @@ def init_gpt_conversation() -> None:
             st.session_state.messages.pop(1)
             if len(st.session_state.messages) == 1:
                 st.session_state.user_text = ""
-            show_conversation()
+#             show_conversation()
         else:
             st.error(err)
     except (OpenAIError, UnboundLocalError) as err:
