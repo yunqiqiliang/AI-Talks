@@ -72,7 +72,7 @@ def main() -> None:
 
     with c1:
         c1.selectbox(label=st.session_state.locale.select_placeholder1, key="model", options=AI_MODEL_OPTIONS)
-        st.session_state.input_kind = c2.radio(
+        st.session_state.input_kind = c1.radio(
             label=st.session_state.locale.input_kind,
             options=(st.session_state.locale.input_kind_1, st.session_state.locale.input_kind_2),
             horizontal=True,
