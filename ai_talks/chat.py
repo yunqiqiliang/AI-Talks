@@ -88,7 +88,6 @@ def main() -> None:
                              options=st.session_state.locale.ai_role_options)
             case st.session_state.locale.radio_text2:
                 c1.text_input(label=st.session_state.locale.select_placeholder3, key="role")
-        init_gpt_conversation()
     with c1:
         if st.session_state.user_text:
             show_conversation()
