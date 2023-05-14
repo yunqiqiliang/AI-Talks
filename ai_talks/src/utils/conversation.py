@@ -22,7 +22,7 @@ def consulting_charts(df)-> None:
     data_types = ",".join(str(num) for num in df.dtypes.to_numpy())
     consulting_charts_prompts = "这是一个dataframe的字段名：" + col_names.str() + "。和字段类型：" + data_types.str() + "。推荐1-6个合适展现这个dataframe的可视化charts"
     try:
-        completion = create_gpt_completion(st.session_state.model, st.session_state.messages)
+        completion = create_gpt_completion(st.session_state.model, consulting_charts_prompts)
         ai_content = completion.get("choices")[0].get("message").get("content")
         st.session_state.charts_type = ai_content
         st.text_area(label="推荐的Charts是：", value=st.session_state.charts_type, key="charts_type")
