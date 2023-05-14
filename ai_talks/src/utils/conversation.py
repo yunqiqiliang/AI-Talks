@@ -51,7 +51,7 @@ def show_query_result() -> None:
         qd=get_queries_data('2022-05-13','2023-05-13',st.session_state.query_result)
         st.text_area(label="执行的SQL代码", value=st.session_state.query_result, key="query_result")
         if df.shape[0]>0
-            consulting_charts（qd.head(10)）
+            consulting_charts(qd.head(10))
 #             st.bar_chart(data=qd,x="QUERY_TYPE",y="TOTAL_ELAPSED_TIME")
             st.table(qd.head(10))
             st.line_chart(qd)
