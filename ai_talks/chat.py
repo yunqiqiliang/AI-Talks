@@ -63,8 +63,8 @@ if "costs" not in st.session_state:
     st.session_state.costs = []
 if "total_tokens" not in st.session_state:
     st.session_state.total_tokens = []
-if "agi_sql_query" not in st.session_state:
-    st.session_state.agi_sql_query = ""
+if "query_result" not in st.session_state:
+    st.session_state.query_result = ""
 
 
 def main() -> None:
