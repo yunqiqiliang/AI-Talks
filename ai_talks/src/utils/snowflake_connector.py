@@ -95,7 +95,7 @@ def get_queries_data(
     date_to: datetime.date,
     sql_query: str,
 ):
-    queries_data = sql_to_dataframe(
+    queries_data ,error_code ,error_reason = sql_to_dataframe(
         sql_query.format(
             date_from=date_from,
             date_to=date_to,
@@ -110,7 +110,7 @@ def get_queries_data(
 #     queries_data["QUERY_TEXT_PP"] = queries_data.QUERY_TEXT.apply(
 #         gui.pretty_print_sql_query
 #     )
-    return queries_data
+    return queries_data,error_code ,error_reason
 
 
 if __name__ == "__main__":
