@@ -68,7 +68,7 @@ if "query_result" not in st.session_state:
 
 
 def main() -> None:
-    c1, c2= st.columns([4, 6])
+    c1, c2= st.columns([3, 7])
 
     with c1:
         c1.selectbox(label=st.session_state.locale.select_placeholder1, key="model", options=AI_MODEL_OPTIONS)
