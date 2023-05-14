@@ -136,4 +136,5 @@ prompts_ord = """
 prompts_sql_standard="""
     请你再深入分析下上述DDL和实体关系，会对生成SQL代码有帮助。请记住：接下来我会用业务语言问一些业务问题，我用的数据库叫Clickzetta Lakehouse，
     SQL语言和Spark SQL语言兼容，所以你帮我生成对应的Clickzetta Lakehouse的SQL代码，需要用Spark SQL标准。并请加上中文注释。不要使用use命令。
+    在SQL的From语句里带上schema名，格式为from schema.table.
 """
