@@ -9,7 +9,7 @@ from .stt import show_voice_input
 from .tts import show_audio_player
 
 from .snowflake_connector import get_queries_data
-from preparedprompts import prompts_schema,prompts_ord,prompts_sql_standard
+from .preparedprompts import prompts_schema,prompts_ord,prompts_sql_standard
 
 import logging
 import re
