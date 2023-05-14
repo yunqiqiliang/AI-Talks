@@ -16,7 +16,7 @@ import re
 def show_query_result() -> None:
     if st.session_state.query_result.find("SELECT") != -1 and st.session_state.query_result.find("FROM") != -1:
         qd=get_queries_data('2022-05-13','2023-05-13',st.session_state.query_result)
-        st.text_area(label="生成的SQL代码", value=qd.shape, key="query_result")
+        st.text_area(label="执行的SQL代码", value=st.session_state.query_result, key="query_result")
     #     st.bar_chart(data=qd,x="QUERY_TYPE",y="TOTAL_ELAPSED_TIME")
         st.table(qd)
     
