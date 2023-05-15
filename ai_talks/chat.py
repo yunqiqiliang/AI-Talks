@@ -11,7 +11,7 @@ from src.utils.helpers import get_files_in_dir, get_random_img
 from src.utils.lang import en, ru
 from streamlit_option_menu import option_menu
 
-from src.utils.lakehouse_connectors import get_queries_data
+from src.utils.lakehouse_connector import get_queries_data
 
 
 # --- PATH SETTINGS ---
