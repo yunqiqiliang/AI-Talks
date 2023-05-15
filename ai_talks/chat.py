@@ -11,6 +11,8 @@ from src.utils.helpers import get_files_in_dir, get_random_img
 from src.utils.lang import en, ru
 from streamlit_option_menu import option_menu
 
+from src.utils.lakehouse_connectors import get_queries_data
+
 
 # --- PATH SETTINGS ---
 current_dir: Path = Path(__file__).parent if "__file__" in locals() else Path.cwd()
@@ -97,6 +99,8 @@ def main() -> None:
             case st.session_state.locale.radio_text2:
                 c1.text_input(label=st.session_state.locale.select_placeholder3, key="role")
     with c2:
+        df = get_queries_data("select 1+2;")
+        st.table(df.head(10))
         if st.session_state.user_text:
             show_conversation()
             st.session_state.user_text = ""
