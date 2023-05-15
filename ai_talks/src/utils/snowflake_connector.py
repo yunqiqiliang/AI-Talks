@@ -67,9 +67,9 @@ cur.execute(f"use role {st.secrets.sf_usage_app.role};")
 
 @st.experimental_memo(ttl=TIME_TO_LIVE)
 def sql_to_dataframe(sql_query: str) -> (pd.DataFrame, str, str):
+    data = pd.DataFrame()
     error_code = ""
     error_reason = ""
-    data = pd.DataFrame()
     try:
         # 执行 SQL 查询
         data = pd.read_sql(
