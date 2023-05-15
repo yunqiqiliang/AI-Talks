@@ -23,7 +23,7 @@ img_dir: Path = assets_dir / "img"
 tg_svg: Path = icons_dir / "tg.svg"
 
 # --- GENERAL SETTINGS ---
-PAGE_TITLE: str = "欢迎来到Click Zetata Data To Insight"
+PAGE_TITLE: str = "欢迎来到Click Zetta Data To Insight"
 PAGE_ICON: str = "🤖"
 LANG_EN: str = "En"
 LANG_RU: str = "Ru"
