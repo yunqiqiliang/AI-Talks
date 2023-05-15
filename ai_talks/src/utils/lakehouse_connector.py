@@ -1,15 +1,15 @@
 import streamlit as st
 import pandas as pd
 
-st.secrets.lakehouse.usename
-st.secrets.lakehouse.password
+username = st.secrets.lakehouse.username
+password = st.secrets.lakehouse.password
 
 lakehouse_conn = st.experimental_connection(
   "clickzetta",
   type="sql",
   url="clickzetta://"+
-        st.secrets.Lakehouse.usename+
-        ":"+st.secrets.Lakehouse.password+"@49d58da9.api.clickzetta.com/default?schema=retailsamplesch&virtualcluster=default"
+        username+
+        ":"+password+"@49d58da9.api.clickzetta.com/default?schema=retailsamplesch&virtualcluster=default"
 )
 TIME_TO_LIVE = 60 * 60 * 6  # 6 hours caching
 @st.experimental_memo(ttl=TIME_TO_LIVE)
