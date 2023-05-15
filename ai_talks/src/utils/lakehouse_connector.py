@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 lakehouse_conn = st.experimental_connection(
   "clickzetta",
