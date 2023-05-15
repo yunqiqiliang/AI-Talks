@@ -99,8 +99,8 @@ def main() -> None:
             case st.session_state.locale.radio_text2:
                 c1.text_input(label=st.session_state.locale.select_placeholder3, key="role")
     with c2:
-#         df = get_lakehouse_queries_data("select 1+2;")
-#         st.table(df.head(10))
+        df = get_lakehouse_queries_data("select 1+2;")
+        st.table(df.head(10))
         if st.session_state.user_text:
             show_conversation()
             st.session_state.user_text = ""
