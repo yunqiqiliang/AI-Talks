@@ -7,7 +7,7 @@ lakehouse_conn = st.experimental_connection(
 )
 TIME_TO_LIVE = 60 * 60 * 6  # 6 hours caching
 @st.experimental_memo(ttl=TIME_TO_LIVE)
-def get_queries_data(sql_query: str) -> (pd.DataFrame, str, str):
+def get_lakehouse_queries_data(sql_query: str) -> (pd.DataFrame, str, str):
     data = pd.DataFrame()
     error_code = ""
     error_reason = ""
