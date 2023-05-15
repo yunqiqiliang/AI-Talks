@@ -8,8 +8,8 @@ lakehouse_conn = st.experimental_connection(
   "clickzetta",
   type="sql",
   url="clickzetta://"+
-        st.secrets.lakehouse.usename+
-        ":"+st.secrets.lakehouse.password+"@49d58da9.api.clickzetta.com/default?schema=retailsamplesch&virtualcluster=default"
+        st.secrets.Lakehouse.usename+
+        ":"+st.secrets.Lakehouse.password+"@49d58da9.api.clickzetta.com/default?schema=retailsamplesch&virtualcluster=default"
 )
 TIME_TO_LIVE = 60 * 60 * 6  # 6 hours caching
 @st.experimental_memo(ttl=TIME_TO_LIVE)
